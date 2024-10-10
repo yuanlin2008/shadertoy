@@ -15,12 +15,13 @@ vec2 worldToLocal(in vec2 translation, in float rotation, in vec2 pos){
     ) * pos;
 }
 
-float SDFCircle(in vec2 center, in float radius, float edge, in vec2 pos){
+float inCircle(in vec2 center, in float radius, float edge, in vec2 pos){
     return 1.-smoothstep(radius, radius + edge, length(pos - center));
 }
 
-float SDFRect(in vec2 center, in float rot, in vec2 size, float edge, in vec2 pos){
+float inRect(in vec2 center, in float rot, in vec2 size, float edge, in vec2 pos){
     pos = worldToLocal(center, rot, pos);
-    vec2 d = vec2(1) - smoothstep(size, size + vec2(edge), abs(pos));
+    vec2 d = vec2(1) - 
+        smoothstep(size, size + vec2(edge), abs(pos));
     return d.x*d.y;
 }
