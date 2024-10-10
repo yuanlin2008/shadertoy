@@ -20,3 +20,14 @@ float distToRect(in vec2 center, in float rot, in vec2 size, in vec2 pos) {
     pos = abs(worldToLocal(center, rot, pos))-size;
     return max(pos.x, pos.y);
 }
+
+float distToHeart(in vec2 center, in float rot,in float size, in vec2 pos){
+    pos = worldToLocal(center, rot, pos);
+    float x = pos.x;
+    float y = pos.y;
+    float xx = x*x;
+    float yy = y*y;
+    float yyy = yy*y;
+    float group = xx + yy - size;
+    return group * group * group - xx * yyy;
+}
