@@ -575,7 +575,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
 
     // camera	
     vec3 ta = vec3(0.25, -0.75, -0.75);
-    vec3 ro = ta + vec3(4.5 * cos(0.1 * time + 7.0 * mo.x), 2.2, 4.5 * sin(0.1 * time + 7.0 * mo.x));
+    vec3 ro = vec3(5,5,5);//ta + vec3(4.5 * cos(0.1 * time + 7.0 * mo.x), 2.2, 4.5 * sin(0.1 * time + 7.0 * mo.x));
     // camera-to-world transformation
     mat3 ca = setCamera(ro, ta, 0.0);
 
